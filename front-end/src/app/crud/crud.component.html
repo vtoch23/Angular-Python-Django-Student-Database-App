@@ -1,0 +1,62 @@
+<div class="bg-slate-200 p-7">
+<div class="max-w-lg mx-auto rounded-xl shadow-lg p-3 bg-white">
+    <h1 class="text-xl font-medium text-black mb-4">STUDENT Registation</h1>
+    <div class="card">
+        <form>
+            <div class="form">
+                <div>Student Name</div>
+                <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" class="form-input rounded w-full max-w-70"
+                    id="studentname" name="studentname" placeholder="Enter Name">
+            </div>
+
+            <div class="form-group">
+                <div>Country</div>
+                <input type="text" [(ngModel)]="address" [ngModelOptions]="{standalone: true}" class="rounded form-input w-full max-w-70"
+                    id="studentaddress" name="studentaddress" placeholder="Enter Country">
+            </div>
+
+            <div class="form-group">
+                <div>Fee</div>
+                <input type="text" [(ngModel)]="fee" [ngModelOptions]="{standalone: true}" class="rounded form-input w-full max-w-70" id="fee"
+                    name="number" placeholder="Enter Fee">
+            </div>
+
+            <button type="submit" class="px-4 py-1 bg-gray-700 text-sm text-white font-semibold rounded-full border my-5" (click)="saveRecords()">Save</button> &nbsp;
+            <button type="submit" class="px-4 py-1 text-sm text-slate-600 font-semibold rounded-full border bg-orange-300 hover:bg-orange-500" (click)="UpdateRecords()">Update</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <div class="max-w-lg mx-auto rounded-xl shadow-lg p-1 text-sm bg-white mt-10">
+        <h1 class="text-xl font-medium text-black m-1 mt-2">Students Database</h1>
+        <table class="border-separate [border-spacing:1.2rem]">
+            <thead>
+                <tr class="">
+                    <td class="col border-separate font-bold">Name</td>
+                    <td class="col border-separate font-bold">Address</td>
+                    <td class="col border-separate font-bold">Fee</td>
+                    <td class="col border-separate font-bold">Option</td>
+                </tr>
+            </thead>
+            <tbody>
+                @for (student of StudentArray; track student) {
+                    <tr>
+                        <td class="col border-separate">{{student.name}}</td>
+                        <td class="col border-separate">{{student.address }}</td>
+                        <td class="col border-separate">{{student.fee }}</td>
+                        
+                        <td>
+                            <button type="button" class="bg-orange-300 hover:bg-orange-500 text-black font-sm font-semibold py-1 px-4 rounded" (click)="setUpdate(student)">Edit</button>
+                            <button type="button" class="bg-slate-300 hover:bg-slate-700 font-semibold text-slate-600 py-1 px-4 rounded ml-1" (click)="setDelete(student)">Delete</button>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+</div>
