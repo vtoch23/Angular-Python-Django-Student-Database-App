@@ -1,54 +1,54 @@
 <div class="bg-slate-200 p-7">
-<div class="max-w-lg mx-auto rounded-xl shadow-lg p-3 bg-white">
-    <h1 class="text-xl font-medium text-black mb-4">STUDENT Registation</h1>
+<div data-cy="students-input-form" class="max-w-lg mx-auto rounded-xl shadow-lg p-3 bg-white">
+    <h1 class="text-xl font-medium text-black mb-4" data-cy="title">Student Registration</h1>
     <div class="card">
         <form>
-            <div class="form">
-                <div>Student Name</div>
+            <div class="form" data-cy="student-name-input">
+                <div data-cy="name-input-title">Student Name</div>
                 <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" class="form-input rounded w-full max-w-70 border-slate-300 shadow"
-                    id="studentname" name="studentname" placeholder="Enter Name">
+                    id="studentname" name="student-name" placeholder="Enter Name">
             </div>
 
-            <div class="form-group">
-                <div>Country</div>
+            <div class="form-group" data-cy="student-address-input">
+                <div data-cy="address-input-title">Country</div>
                 <input type="text" [(ngModel)]="address" [ngModelOptions]="{standalone: true}" class="rounded form-input w-full max-w-70 border-slate-300 shadow"
-                    id="studentaddress" name="studentaddress" placeholder="Enter Country">
+                    id="studentaddress" name="student-address" placeholder="Enter Country">
             </div>
 
-            <div class="form-group">
-                <div>Fee</div>
+            <div class="form-group" data-cy="student-fee-input">
+                <div data-cy="fee-input-title">Fee</div>
                 <input type="text" [(ngModel)]="fee" [ngModelOptions]="{standalone: true}" class="rounded form-input w-full max-w-70 border-slate-300 shadow" id="fee"
                     name="number" placeholder="Enter Fee">
             </div>
 
-            <button type="submit" class="px-4 py-1 bg-gray-700 text-sm text-white font-semibold rounded-full border my-5 hover:bg-slate-300 hover:text-black" (click)="saveRecords()">Save</button> &nbsp;
-            <button type="submit" class="px-4 py-1 text-sm text-slate-600 font-semibold rounded-full border bg-orange-300 hover:bg-orange-500" (click)="UpdateRecords()">Update</button>
+            <button data-cy="save-button" type="submit" class="px-4 py-1 bg-gray-700 text-sm text-white font-semibold rounded-full border my-5 hover:bg-slate-300 hover:text-black" (click)="saveRecords()">Save</button> &nbsp;
+            <button data-cy="update-button" type="submit" class="px-4 py-1 text-sm text-slate-600 font-semibold rounded-full border bg-orange-300 hover:bg-orange-500" (click)="UpdateRecords()">Update</button>
         </form>
     </div>
 </div>
 
 <div>
-    <div class="max-w-lg mx-auto rounded-xl shadow-lg p-1 text-sm bg-white mt-10">
-        <h1 class="text-xl font-medium text-black m-1 mt-2">Students Database</h1>
+    <div class="max-w-lg mx-auto rounded-xl shadow-lg p-1 text-sm bg-white mt-10" data-cy="students-output">
+        <h1 data-cy="database-title" class="text-xl font-medium text-black m-1 mt-2">Students Database</h1>
         <table class="border-separate [border-spacing:1.2rem]">
             <thead>
-                <tr class="">
-                    <td class="col border-separate font-bold">Name</td>
-                    <td class="col border-separate font-bold">Address</td>
-                    <td class="col border-separate font-bold">Fee</td>
+                <tr>
+                    <td class="col border-separate font-bold" data-cy="student-name">Name</td>
+                    <td class="col border-separate font-bold" data-cy="student-address">Address</td>
+                    <td class="col border-separate font-bold" data-cy="student-fee">Fee</td>
                     <td class="col border-separate font-bold">Option</td>
                 </tr>
             </thead>
             <tbody>
                 @for (student of StudentArray; track student) {
-                    <tr class="">
-                        <td class="col border-separate border-b-2">{{student.name}}</td>
-                        <td class="col border-separate border-b-2">{{student.address }}</td>
-                        <td class="col border-separate border-b-2">{{student.fee }}</td>
+                    <tr data-cy="student-data">
+                        <td data-cy="student-output-name" class="col border-separate border-b-2">{{student.name}}</td>
+                        <td data-cy="student-output-address" class="col border-separate border-b-2">{{student.address }}</td>
+                        <td data-cy="student-output-fee" class="col border-separate border-b-2">{{student.fee }}</td>
                         
                         <td>
-                            <button type="button" class="bg-orange-300 hover:bg-orange-500 text-black hover:text-white font-sm font-semibold py-1 px-4 rounded" (click)="setUpdate(student)">Edit</button>
-                            <button type="button" class="bg-slate-300 hover:bg-slate-700 font-semibold text-slate-600 hover:text-white py-1 px-4 rounded ml-1" (click)="setDelete(student)">Delete</button>
+                            <button data-cy="edit-button" type="button" class="bg-orange-300 hover:bg-orange-500 text-black hover:text-white font-sm font-semibold py-1 px-4 rounded" (click)="setUpdate(student)">Edit</button>
+                            <button data-cy="delete-button" type="button" class="bg-slate-300 hover:bg-slate-700 font-semibold text-slate-600 hover:text-white py-1 px-4 rounded ml-1" (click)="setDelete(student)">Delete</button>
                         </td>
                     </tr>
                 }
