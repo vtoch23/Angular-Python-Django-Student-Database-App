@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './crud.component.html',
-  styleUrls: ['./crud.component.scss'],
+  styleUrls: ['./crud.component.css'],
 })
 
 
@@ -23,10 +23,10 @@ export class CrudComponent {
  
   currentStudentID = "";
  
-  constructor(private http: HttpClient )
-  {
+  constructor(private http: HttpClient ){}
+
+  ngOnInit() {
     this.getAllStudents();
- 
   }
  
   saveRecords()
@@ -78,10 +78,7 @@ export class CrudComponent {
     
     this.http.put("http://127.0.0.1:8000/student/"+ this.currentStudentID , bodyData).subscribe((resultData: any)=>
     {
-        this.name = '';
-        this.address = '';
-        this.fee  = 0;
-        this.getAllStudents();
+      this.getAllStudents();
     });
   }
 
