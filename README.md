@@ -1,9 +1,5 @@
 # Student Database Management Application
 
-Full-stack web application for managing student records, built with Angular on the frontend and Django on the backend. The project focuses on CRUD operations, API integration, and automated testing across the stack.
-
-# Student Database Management Application
-
 Full-stack web application for managing student records, built with Angular and Tailwind CSS on the frontend and Django on the backend. The project demonstrates CRUD functionality, REST API integration, relational database design, and automated testing.
 
 ## Overview
