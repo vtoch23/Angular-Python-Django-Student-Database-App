@@ -54,6 +54,5 @@ cd Angular-Python-Django-Student-Database-App
 Run "python manage.py runserver" from main folder to run back-end.
 
 Run "ng serve" from front-end folder to run front end.
-
-
+```
 <img width="688" alt="image" src="https://github.com/user-attachments/assets/e9797faa-6307-4cab-9e22-f13e9ef40cf3">
